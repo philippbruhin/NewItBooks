@@ -14,7 +14,14 @@ class BlogController extends Controller
         return view('blog.index', compact('blogs'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('blog.create');
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        Blog::create($input);
     }
 }

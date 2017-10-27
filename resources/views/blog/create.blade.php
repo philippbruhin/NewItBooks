@@ -9,7 +9,7 @@
                 <h1>Create a blog post</h1>
             </div>
             <div class="col-sm-10 col-sm-offset-1">
-                {!! Form::open(['method' => 'POST']) !!}
+                {!! Form::open(['method' => 'POST', 'action' => 'BlogController@store']) !!}
                     <div class="form-group">
                         {{ Form::label("title", "Title:") }}
                         {{ Form::text("title", null, ['class' => 'form-control']) }}
