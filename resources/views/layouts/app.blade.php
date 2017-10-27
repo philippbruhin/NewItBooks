@@ -29,8 +29,9 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'NewItBooks') }}
+                    <a class="navbar-brand" href="{{ url('/blog') }}">
+                        NewItBooks
+                        {{-- config('app.name', 'NewItBooks') --}}
                     </a>
                 </div>
 

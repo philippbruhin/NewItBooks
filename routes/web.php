@@ -22,8 +22,10 @@ Route::get('/blog', 'BlogController@index');
 Route::get('/blog/create', 'BlogController@create');
 
 Route::post('/blog/store', 'BlogController@store');
+Route::patch('/blog/{id}', 'BlogController@update');
 
 Route::get('/blog/{id}', 'BlogController@show');
+Route::get('/blog/{id}/edit', 'BlogController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
