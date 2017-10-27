@@ -23,5 +23,7 @@ Route::get('/blog/create', 'BlogController@create');
 
 Route::post('/blog/store', 'BlogController@store');
 
+Route::get('/blog/{id}', 'BlogController@show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 

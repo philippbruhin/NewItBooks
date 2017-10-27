@@ -11,7 +11,7 @@
         <div class="col-sm-10 col-sm-offset-1">
             @foreach ($blogs as $blog)
                 <article>
-                    <h1>{{ $blog->title }}</h1>
+                    <h2><a href="{{ action('BlogController@show', [$blog->id]) }}">{{ $blog->title }}</a></h2>
                     <p>{{ $blog->body }}</p>
                 </article>
             @endforeach
