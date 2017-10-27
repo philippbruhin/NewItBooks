@@ -5,14 +5,14 @@
     <main class="container-fluid">
 
         <div class="container-fluid">
-            <div class="jumbotron">
-                <h1>{{ $blog->title }}</h1>
-            </div>
-            <div class="col-sm-10 col-sm-offset-1">
-                    <article>
-                        <p>{{ $blog->body }}</p>
-                    </article>
-            </div>
+            <article>
+                <div class="jumbotron">
+                    <h1>{{ $blog->title }}</h1>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <p>{{ $blog->body }}</p>
+                </div>
+            </article>
         </div>
     </main>
 
