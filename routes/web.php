@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/blog/bin', 'BlogController@bin');
+Route::get('/blog/bin/{id}/restore', 'BlogController@restore');
+Route::delete('/blog/bin/{id}/destroyblog', 'BlogController@destroyBlog');
+
 Route::get('/blog', 'BlogController@index');
 
 Route::get('/blog/create', 'BlogController@create');
