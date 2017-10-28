@@ -7,6 +7,12 @@ use App\Blog;
 
 class BlogController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
         // get the latest posts from the database
