@@ -42,7 +42,13 @@ class BlogController extends Controller
     {
         $input = $request->all();
         $blog = Blog::findOrFail($id);
-        Blog->update($input);
+        $blog->update($input);
         return back();
+    }
+
+    public function destroy(Request $request, $id){
+        $blog = Blog::findOrFail($id);
+        $blog->delete($request->all());
+        return redirect('/blog');
     }
 }
