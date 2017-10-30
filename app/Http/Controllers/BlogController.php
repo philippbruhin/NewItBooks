@@ -30,7 +30,10 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        Blog::create($input);
+        $blog = Blog::create($input);
+        if($categoryIds = $request->category_id) {
+            $blog->category()->sync($categoryIds);
+        }
     }
 
     public function show($id)

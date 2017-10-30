@@ -11,6 +11,9 @@
                 </div>
                 <div class="col-sm-10 col-sm-offset-1">
                     <p>{{ $blog->body }}</p>
+                    @foreach ($blog->category as $category)
+                        <p>{{ $category->name }}</p>
+                    @endforeach
                 </div>
             </article>
         </div>
