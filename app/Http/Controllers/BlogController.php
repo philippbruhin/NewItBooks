@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Category;
 
 class BlogController extends Controller
 {
@@ -22,7 +23,8 @@ class BlogController extends Controller
 
     public function create()
     {
-        return view('blog.create');
+        $categories = Category::pluck('name', 'id');
+        return view('blog.create', compact('categories'));
     }
 
     public function store(Request $request)
