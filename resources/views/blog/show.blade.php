@@ -6,6 +6,14 @@
 
         <div class="container-fluid">
             <article>
+                <div class="col-sm-12 text-center">
+                    @if ($blog->photo)
+                        <div class="img-responsive">
+                            <img class="featured_image" src="/images/{{ $blog->photo ? $blog->photo->photo : ''}}" alt="">
+                        </div>
+                    @endif
+                </div>
+
                 <div class="jumbotron">
                     <h1>{{ $blog->title }}</h1><a href="{{ action('BlogController@edit', [$blog->id]) }}" class="pull-right">Edit</a>
                 </div>

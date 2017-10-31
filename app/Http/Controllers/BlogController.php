@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\Category;
 use App\Photo;
+use Carbon\Carbon;
 
 class BlogController extends Controller
 {
@@ -33,13 +34,14 @@ class BlogController extends Controller
         $input = $request->all();
 
         if($file = $request->file('photo_id')) {
-            $name = $file->getClientOriginalName();
+            $name = Carbon::now()->format('YmdHis'). '-' .$file->getClientOriginalName();
             $file->move('images', $name);
             $photo = Photo::create(['photo' => $name, 'title' => $name]);
             $input['photo_id'] = $photo->id;
         }
 
         $blog = Blog::create($input);
+
         if($categoryIds = $request->category_id) {
             $blog->category()->sync($categoryIds);
         }

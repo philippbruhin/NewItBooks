@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $fillable = ['title', 'body', 'photo_Id'];
+    protected $fillable = ['title', 'body', 'photo_id'];
 
     public function category()
     {
