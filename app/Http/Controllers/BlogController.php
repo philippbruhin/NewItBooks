@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Category;
+use App\Photo;
 
 class BlogController extends Controller
 {
@@ -30,6 +31,14 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
+        if($file = $request->file('photo_id')) {
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['photo' => $name, 'title' => $name]);
+            $input['photo_id'] = $photo->id;
+        }
+
         $blog = Blog::create($input);
         if($categoryIds = $request->category_id) {
             $blog->category()->sync($categoryIds);
