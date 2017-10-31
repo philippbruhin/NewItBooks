@@ -19,6 +19,10 @@
                     {{ Form::textarea("body", null, ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
+                    {{ Form::label("category_id", "Category:") }}
+                    {{ Form::select("category_id[]", $categories, null, ['id' => 'tag_list', 'class' => 'form-control']) }}
+                </div>
+                <div class="form-group">
                     {!! Form::submit("Update Blog", ['class' => 'btn btn-primary']) !!}
                 </div>
                 {!! Form::close() !!}
@@ -32,5 +36,5 @@
         </div>
     </main>
 
-
+@include('partials.select-2-script')
 @endsection

@@ -1,0 +1,3 @@
+<script>
+    // Some Script
+</script>

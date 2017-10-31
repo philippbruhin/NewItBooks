@@ -34,6 +34,7 @@ class BlogController extends Controller
         if($categoryIds = $request->category_id) {
             $blog->category()->sync($categoryIds);
         }
+        return redirect('/blog');
     }
 
     public function show($id)
@@ -45,8 +46,9 @@ class BlogController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::pluck('name', 'id');
         $blog = Blog::findOrFail($id);
-        return view('blog.edit', compact('blog'));
+        return view('blog.edit', compact('blog', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -54,11 +56,17 @@ class BlogController extends Controller
         $input = $request->all();
         $blog = Blog::findOrFail($id);
         $blog->update($input);
-        return back();
+        if($categoryIds = $request->category_id) {
+            $blog->category()->sync($categoryIds);
+        }
+        return redirect('blog');
     }
 
     public function destroy(Request $request, $id){
         $blog = Blog::findOrFail($id);
+        $categoryIds = $request->category_id;
+        /* Detach category ID when blog is deleted */
+        $blog->category()->detach($categoryIds);
         $blog->delete($request->all());
         return redirect('/blog/bin');
     }
