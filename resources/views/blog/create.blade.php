@@ -27,6 +27,10 @@
                         {{ Form::select("category_id[]", $categories, null, ['id' => 'tag_list', 'class' => 'form-control']) }}
                     </div>
                     <div class="form-group">
+                        {{ Form::label("meta_description" , "Meta Description:") }}
+                        {{ Form::text("meta_description", null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
                         {!! Form::submit("Create a Blog", ['class' => 'btn btn-primary']) !!}
                     </div>
                 {!! Form::close() !!}

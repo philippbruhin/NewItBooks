@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>New IT Books @yield('meta-title')</title>
+    <meta name="description" content="@yield('meta-description')">
+    <meta name="author" content="@yield('meta-author')">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

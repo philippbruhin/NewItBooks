@@ -2,15 +2,15 @@
 
 @section('content')
 
+@include('partials.meta-dynamic');
+
     <main class="container-fluid">
 
         <div class="container-fluid">
             <article>
                 <div class="col-sm-12 text-center">
                     @if ($blog->photo)
-                        <div class="img-responsive">
-                            <img class="featured_image" src="/images/{{ $blog->photo ? $blog->photo->photo : ''}}" alt="">
-                        </div>
+                        <img class="img-responsive featured_image" src="/images/{{ $blog->photo ? $blog->photo->photo : ''}}" alt="{{ str_limit($blog->title, 50) }}">
                     @endif
                 </div>
 
