@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('partials.tinymce')
+
     <main class="container-fluid">
 
         <div class="container-fluid">
