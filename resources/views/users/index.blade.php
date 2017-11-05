@@ -26,19 +26,20 @@
                                 <th>Name</th>
                                 <th>EMail</th>
                                 <th>Joined</th>
+                                <th>Role</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-                                <tr>
+                                <>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                     <td>
-                                        {{-- Form::model($blog, ['method' => 'PATCH', 'action' => ['BlogController@publish', $blog->id]]) }}
-                                        {!! Form::select("status", ['0' => 'Draft', '1' => 'Publish'], null, ['class' => 'btn btn-primary']) !!}
-                                        {{ Form::submit("Publish", ['class' => 'btn btn-success']) }}
-                                        {{ Form::close() --}}
+                                        {{ Form::model($user, ['method' => 'PATCH', 'action' => ['UserController@update', $user->id]]) }}
+                                        {!! Form::select("role_id", ['1' => 'Administrator', '2' => 'Subscriber'], null, ['class' => 'btn btn-primary']) !!}
+                                        {{ Form::submit("Update", ['class' => 'btn btn-success']) }}
+                                        {{ Form::close() }}
                                     </td>
                                 </tr>
                             @endforeach

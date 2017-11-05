@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $users = User::all();
         $roles = Role::pluck('name', 'id');
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users', 'roles'));
     }
 
     /**
@@ -72,7 +72,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $user = User::findOrFail($id);
+        $user->update($input);
+        return redirect ('users');
     }
 
     /**
