@@ -33,7 +33,7 @@
                         {{ Form::text("meta_description", null, ['class' => 'form-control']) }}
                     </div>
                     <div class="form-group">
-                        {!! Form::submit("Create a Blog", ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
                     </div>
                 {!! Form::close() !!}
             </div>

@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('meta_title');
             $table->string('meta_description', 160);
             $table->integer('photo_id')->nullable();
+            $table->integer('status')->default(0); // 0 = draft, 1 = published
             $table->string('title');
             $table->text('body');
             $table->timestamps();
