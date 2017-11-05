@@ -42,3 +42,5 @@ Route::get('/admin', 'AdminController@index');
 Route::resource('categories', 'CategoryController');
 Route::resource('media', 'PhotosController');
 
+
+Route::resource('users', 'UsersController');
