@@ -43,4 +43,4 @@ Route::resource('categories', 'CategoryController');
 Route::resource('media', 'PhotosController');
 
 
-Route::resource('users', 'UsersController');
+Route::resource('users', 'UserController');
