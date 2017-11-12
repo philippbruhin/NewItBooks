@@ -12,6 +12,7 @@
                 <button class="btn btn-primary"><a style="color:#fff;" href="{{ url('blog/create') }}">Create Blog</a></button>
                 <button class="btn btn-danger"><a style="color:#fff;" href="{{ url('blog/bin') }}">Trashed Blogs</a></button>
                 <button class="btn btn-success"><a style="color:#fff;" href="{{ url('media') }}">Featured Images</a></button>
+                <button class="btn btn-primary"><a style="color:#fff;" href="{{ url('users') }}">Users</a></button>
             </div>
         </div>
 

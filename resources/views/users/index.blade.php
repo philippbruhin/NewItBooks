@@ -31,13 +31,12 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-                                <>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                     <td>
                                         {{ Form::model($user, ['method' => 'PATCH', 'action' => ['UserController@update', $user->id]]) }}
-                                        {!! Form::select("role_id", ['1' => 'Administrator', '2' => 'Subscriber'], null, ['class' => 'btn btn-primary']) !!}
+                                        {!! Form::select("role_id", ['1' => 'Administrator', '2' => 'Author', '3' => 'Subscriber'], null, ['class' => 'btn btn-primary']) !!}
                                         {{ Form::submit("Update", ['class' => 'btn btn-success']) }}
                                         {{ Form::close() }}
                                     </td>
